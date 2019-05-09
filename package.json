@@ -1,0 +1,34 @@
+{
+  "name": "semantish-prerelease",
+  "version": "0.0.0-development",
+  "description": "hacky wrapper around semantic release to create beta releases from PRs in circleci",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xiphe/semantish-prerelease.git"
+  },
+  "keywords": [
+    "semantic",
+    "release",
+    "pre-release",
+    "beta-release",
+    "ci"
+  ],
+  "author": "Hannes Diercks <node@xiphe.net> (https://xiphe.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xiphe/semantish-prerelease/issues"
+  },
+  "homepage": "https://github.com/Xiphe/semantish-prerelease#readme",
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "4.2.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-prettier": "3.0.1",
+    "prettier": "1.17.0"
+  }
+}
