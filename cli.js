@@ -59,12 +59,12 @@ function getNextRelease() {
     const preReleaseVersion = `${version}-beta.${gitHead.substring(0, 7)}`;
     await new Promise((resolve, reject) => {
       exec(`npm version ${preReleaseVersion} --no-git-tag-version`, (err) =>
-        err ? reject(err) : resolve,
+        err ? reject(err) : resolve(),
       );
     });
 
     await new Promise((resolve, reject) => {
-      exec(`npm publish --no-tag`, (err) => (err ? reject(err) : resolve));
+      exec(`npm publish --no-tag`, (err) => (err ? reject(err) : resolve()));
     });
 
     const prefix = await new Promise((resolve, reject) => {
