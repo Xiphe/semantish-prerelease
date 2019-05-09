@@ -24,6 +24,7 @@ function getNextRelease() {
       {
         plugins: [
           '@semantic-release/commit-analyzer',
+          '@semantic-release/npm',
           {
             verifyRelease(opts, { nextRelease: n }) {
               nextRelease = n;
