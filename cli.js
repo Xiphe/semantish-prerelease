@@ -65,7 +65,9 @@ function getNextRelease() {
     });
 
     await new Promise((resolve, reject) => {
-      exec(`npm publish --no-tag`, (err) => (err ? reject(err) : resolve()));
+      exec(`npm publish --tag="${branch || prBranch}"`, (err) =>
+        err ? reject(err) : resolve(),
+      );
     });
 
     const prefix = await new Promise((resolve, reject) => {
