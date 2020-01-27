@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-'use strict';
-
 const run = require('semantic-release');
 const envCi = require('env-ci');
 const { Writable } = require('stream');
 const { exec } = require('child_process');
 const Octokit = require('@octokit/rest');
 
-const { branch, prBranch, pr, isPr, slug } = envCi();
+const ci = envCi();
+const { branch, prBranch, pr, isPr, slug } = ci;
+console.log('CI', ci);
 
 function getNextRelease() {
   let nextRelease = {};
