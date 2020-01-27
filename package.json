@@ -1,6 +1,6 @@
 {
   "name": "semantish-prerelease",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "hacky wrapper around semantic release to create beta releases from PRs in circleci",
   "main": "index.js",
   "bin": {
