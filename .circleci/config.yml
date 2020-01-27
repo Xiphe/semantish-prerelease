@@ -40,7 +40,7 @@ jobs:
             - v1-repo-{{ .Revision }}
       - run:
           name: pre-release
-          command: ./cli.js
+          command: npx semantic-release || true
 
 workflows:
   version: 2
