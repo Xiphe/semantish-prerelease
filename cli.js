@@ -31,7 +31,7 @@ function getNextRelease() {
             },
           },
         ],
-        branch: branch || prBranch,
+        branches: [branch || prBranch],
         dryRun: true,
       },
       {
