@@ -2,8 +2,6 @@ const { branch } = require('env-ci');
 
 const DEFAULT_BRANCH = 'master';
 
-console.log('FOO!');
-
 module.exports = {
   branches: [DEFAULT_BRANCH, { name: '*', prerelease: true }],
   plugins: [
