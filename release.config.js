@@ -25,7 +25,7 @@ const npmPrerelease = {
 };
 
 module.exports = {
-  branches: [DEFAULT_BRANCH, { name: '*', channel: 'beta', prerelease: true }],
+  branches: [DEFAULT_BRANCH, { name: '*', prerelease: true }],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
@@ -33,5 +33,3 @@ module.exports = {
     branch === DEFAULT_BRANCH && '@semantic-release/github',
   ].filter(Boolean),
 };
-
-console.log('CONFIG', module.exports);
