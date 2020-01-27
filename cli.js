@@ -8,7 +8,7 @@ const Octokit = require('@octokit/rest');
 
 const ci = envCi();
 const { branch, prBranch, pr, isPr, slug } = ci;
-console.log('CI', ci);
+console.log('CI!!', ci);
 
 function getNextRelease() {
   let nextRelease = {};
