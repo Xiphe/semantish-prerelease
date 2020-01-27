@@ -1,4 +1,4 @@
-const { branch, ...rest } = require('env-ci');
+const { branch, ...rest } = require('env-ci')();
 
 const DEFAULT_BRANCH = 'master';
 
