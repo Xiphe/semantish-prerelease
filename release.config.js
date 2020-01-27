@@ -1,8 +1,6 @@
-const { branch, ...rest } = require('env-ci')();
+const { branch } = require('env-ci')();
 
 const DEFAULT_BRANCH = 'master';
-
-console.log(branch, rest);
 
 module.exports = {
   branches: [DEFAULT_BRANCH, { name: '*', prerelease: true }],
