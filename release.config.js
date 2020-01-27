@@ -33,3 +33,5 @@ module.exports = {
     branch === DEFAULT_BRANCH && '@semantic-release/github',
   ].filter(Boolean),
 };
+
+console.log('CONFIG', module.exports);
