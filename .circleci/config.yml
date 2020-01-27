@@ -39,7 +39,7 @@ jobs:
           keys:
             - v1-repo-{{ .Revision }}
       - run:
-          name: release
+          name: pre-release
           command: ./cli.js
 
 workflows:
@@ -47,9 +47,6 @@ workflows:
   test-and-publish:
     jobs:
       - install
-      - test:
-          requires:
-            - install
       - release:
           requires:
             - install
