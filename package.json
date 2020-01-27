@@ -27,9 +27,6 @@
     "url": "https://github.com/Xiphe/semantish-prerelease/issues"
   },
   "homepage": "https://github.com/Xiphe/semantish-prerelease#readme",
-  "release": {
-    "branches": ["master", { "name": "*", "channel": "beta", "prerelease": true }]
-  },
   "peerDependencies": {
     "semantic-release": "^16",
     "env-ci": "^5",
