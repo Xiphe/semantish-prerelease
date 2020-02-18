@@ -16,6 +16,7 @@ module.exports = async function semantishPrerelease(
   getNextVersion = defaultGetNextVersion,
   git = defaultGit,
 ) {
+  Object.assign(env, { PRE_RELEASE: 'true' });
   const context = { cwd, env, stdout, stderr, envCi: getEnvCi({ env, cwd }) };
   return proxyquire('semantic-release', {
     './lib/get-next-version': getNextVersion,
