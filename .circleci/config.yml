@@ -41,6 +41,22 @@ jobs:
       - run:
           name: pre-release
           command: unset CIRCLE_PR_NUMBER; unset CIRCLE_PULL_REQUEST; unset CI_PULL_REQUEST; ./cli.js
+      - save_cache:
+          paths:
+            - ~/spr/package.json
+          key: v1-pkg-{{ .Revision }}
+  notify-pr:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Revision }}
+      - restore_cache:
+          keys:
+            - v1-pkg-{{ .Revision }}
+      - run:
+          name: notify pr
+          command: 'npx decorate-gh-pr -f scripts/notifyPr.js'
 
 workflows:
   version: 2
@@ -59,3 +75,10 @@ workflows:
           filters:
             branches:
               ignore: master
+      - notify-pr:
+          requires:
+            - pre-release
+          filters:
+            branches:
+              ignore:
+                - master
