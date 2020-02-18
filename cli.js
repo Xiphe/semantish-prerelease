@@ -1,4 +1,14 @@
 #!/usr/bin/env node
 
-console.log('Pleas use pre-releases of semantic-release');
-process.exit(1);
+const proxyquire = require('proxyquire');
+const semantishPrerelease = require('./src');
+
+proxyquire('semantic-release/cli', {
+  '.': (opts) => {
+    return semantishPrerelease(opts);
+  },
+})().catch((err) => {
+  /* eslint-disable-next-line no-console */
+  console.error(err);
+  process.exit(err.code || 1);
+});

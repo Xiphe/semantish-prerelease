@@ -40,7 +40,7 @@ jobs:
             - v1-repo-{{ .Revision }}
       - run:
           name: pre-release
-          command: unset CIRCLE_PR_NUMBER; unset CIRCLE_PULL_REQUEST; unset CI_PULL_REQUEST; npx semantic-release || true
+          command: unset CIRCLE_PR_NUMBER; unset CIRCLE_PULL_REQUEST; unset CI_PULL_REQUEST; ./cli.js
 
 workflows:
   version: 2

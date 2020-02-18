@@ -2,7 +2,7 @@
   "name": "semantish-prerelease",
   "version": "0.0.0-development",
   "description": "hacky wrapper around semantic release to create beta releases from PRs in circleci",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
     "semantish-prerelease": "./cli.js"
   },
@@ -28,9 +28,8 @@
   },
   "homepage": "https://github.com/Xiphe/semantish-prerelease#readme",
   "peerDependencies": {
-    "semantic-release": "^16",
-    "env-ci": "^5",
-    "@octokit/rest": "^16"
+    "semantic-release": "^17",
+    "env-ci": "^5"
   },
   "devDependencies": {
     "eslint": "6.8.0",
@@ -40,5 +39,8 @@
     "eslint-plugin-prettier": "3.1.2",
     "prettier": "1.19.1",
     "semantic-release": "^17.0.0"
+  },
+  "dependencies": {
+    "proxyquire": "2.1.3"
   }
 }
