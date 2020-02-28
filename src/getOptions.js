@@ -26,7 +26,11 @@ module.exports = async function getOptions(opts, { cwd, env, envCi }) {
       return true;
     }),
     branches: [
-      { name: branch, channel: branch, prerelease: true },
+      {
+        name: branch,
+        channel: branch,
+        prerelease: branch.replace(/[^0-9A-Za-z-]/g, '-').replace(/-+/g, '-'),
+      },
       ...(config.options.branches || []),
     ],
   };
