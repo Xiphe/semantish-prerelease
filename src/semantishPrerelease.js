@@ -21,5 +21,11 @@ module.exports = async function semantishPrerelease(
   return proxyquire('semantic-release', {
     './lib/get-next-version': getNextVersion,
     './lib/git': git,
+    'env-ci': (subContext) => ({
+      ...getEnvCi(subContext),
+      ...(options.releasePr
+        ? { isPr: false, pr: undefined, prBranch: undefined }
+        : {}),
+    }),
   })(await getOptions(options, context), context);
 };

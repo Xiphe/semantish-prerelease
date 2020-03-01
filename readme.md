@@ -25,6 +25,25 @@ npx semantish-prerelease
 
 Almost all [configuration of semantic-release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md) is being passed through (including cli args).
 
+### `--release-pr`
+
+```bash
+# cli
+semantis-prerelease --release-pr
+```
+
+```js
+// lib
+require('semantish-prerelease')({ releasePr: true });
+```
+
+force releases even on CI runs for a pull request.
+
+semantic-release normally skips PR runs assuming there is a non-pr (branch) run.
+But CircleCi for example only has one run for the PR and none for the branch.
+
+### customizing config for pre-releases
+
 Before reading the config, a `PRE_RELEASE` environment variable is exposed so that
 the config can be customized for pre-releases using a `release.config.js` file.
 
@@ -43,7 +62,7 @@ module.exports = {
 };
 ```
 
-Note that `@semantic-release/github` and `@semantic-release/gitlab` are always removed since they also creates tags on the git remote.
+Note that `@semantic-release/github` and `@semantic-release/gitlab` are always removed since they also create tags on the git remote.
 
 ## Running in CI PRs
 
