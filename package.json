@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Xiphe/semantish-prerelease#readme",
   "peerDependencies": {
-    "semantic-release": "^17 | ^18",
+    "semantic-release": "^17 || ^18",
     "env-ci": "^5"
   },
   "devDependencies": {
