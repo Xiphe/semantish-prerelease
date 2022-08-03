@@ -31,7 +31,7 @@ jobs:
             - v1-repo-{{ .Revision }}
       - run:
           name: release
-          command: npx semantic-release || true
+          command: npx semantic-release
   pre-release:
     <<: *defaults
     steps:
@@ -40,7 +40,7 @@ jobs:
             - v1-repo-{{ .Revision }}
       - run:
           name: pre-release
-          command: unset CIRCLE_PR_NUMBER; unset CIRCLE_PULL_REQUEST; unset CI_PULL_REQUEST; ./cli.js
+          command: ./cli.js --release-pr
       - save_cache:
           paths:
             - ~/spr/package.json

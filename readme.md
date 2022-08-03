@@ -64,19 +64,6 @@ module.exports = {
 
 Note that `@semantic-release/github` and `@semantic-release/gitlab` are always removed since they also create tags on the git remote.
 
-## Running in CI PRs
-
-semantic release refuses to work on CI runs for Pull Requests.
-This is because some CI's run twice for PRs (once for the branch + once for the PR).
-In other CI's there is only one run for both, the branch + the PR
-
-You need to make sure that the PR-identifying environment variables are unset
-before running semantish-prerelease
-
-For example on CircleCI:
-
-`unset CIRCLE_PR_NUMBER; unset CIRCLE_PULL_REQUEST; unset CI_PULL_REQUEST; npx semantish-prerelease`
-
 ## Motivation
 
 When working with PRs then:
