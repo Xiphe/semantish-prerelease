@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/Xiphe/semantish-prerelease#readme",
   "peerDependencies": {
-    "semantic-release": "^17 || ^18",
-    "env-ci": "^5"
+    "semantic-release": "^17 || ^18 || ^19",
+    "env-ci": "^5 || ^6 || ^7"
   },
   "devDependencies": {
-    "decorate-gh-pr": "1.3.2",
-    "semantic-release": "18.0.0"
+    "decorate-gh-pr": "1.3.3",
+    "semantic-release": "19.0.3"
   },
   "dependencies": {
     "proxyquire": "2.1.3"
