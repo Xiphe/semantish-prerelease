@@ -15,7 +15,7 @@ module.exports = async function getOptions(opts, { cwd, env, envCi }) {
     opts,
   );
 
-  const options = {
+  return {
     ...opts,
     plugins: (config.options.plugins || []).filter((pluginName) => {
       if (IGNORE_PLUGINS.includes(pluginName)) {
@@ -34,6 +34,4 @@ module.exports = async function getOptions(opts, { cwd, env, envCi }) {
       ...(config.options.branches || []),
     ],
   };
-  console.log('Semantish prerelease options:', options, { envCi });
-  return options;
 };
