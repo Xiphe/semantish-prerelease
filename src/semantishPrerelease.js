@@ -3,6 +3,7 @@ const getEnvCi = require('env-ci');
 const defaultGetOptions = require('./getOptions');
 const defaultGetNextVersion = require('./getNextVersion');
 const defaultGit = require('./git');
+const hidePr = require('./hidePr');
 
 module.exports = async function semantishPrerelease(
   options,
@@ -21,19 +22,6 @@ module.exports = async function semantishPrerelease(
   return proxyquire('semantic-release', {
     './lib/get-next-version': getNextVersion,
     './lib/git': git,
-    'env-ci': (subContext) => {
-      const envCi = getEnvCi(subContext);
-      if (!options.releasePr || !envCi.pr) {
-        return envCi;
-      }
-
-      return {
-        ...envCi,
-        isPr: false,
-        pr: undefined,
-        prBranch: undefined,
-        branch: envCi.branch || envCi.prBranch,
-      };
-    },
+    'env-ci': hidePr(options.releasePr),
   })(await getOptions(options, context), context);
 };
