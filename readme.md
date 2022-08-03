@@ -1,21 +1,21 @@
 # semantish-prerelease
 
-[![CircleCI](https://circleci.com/gh/Xiphe/semantish-prerelease/tree/master.svg?style=shield)](https://circleci.com/gh/Xiphe/semantish-prerelease/tree/master)
+[![CircleCI](https://circleci.com/gh/Xiphe/semantish-prerelease/tree/main.svg?style=shield)](https://circleci.com/gh/Xiphe/semantish-prerelease/tree/main)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![semantish-prerelease](https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9B%B8-semantish--prerelease-d86b86.svg)](https://github.com/Xiphe/semantish-prerelease)
 
 Adapting [semantic-release](https://github.com/semantic-release/semantic-release)
-to create pre-releases without git-tags, github-releases and with a shortened
-git-hash instead of a incremental counter.
+to create pre-releases without git-tags, github-releases and with a timestamp
+instead of a incremental counter.
 
 ~~1.0.2-next.1~~  
-`1.0.2-next.40bf6c81`
+`1.0.2-next.1659519570622`
 
 ## Usage
 
 In a CI environment, this will file a pre-release of the current branch.
 The CI should be configured in a way that the command is not run on branches
-that should not be pre-released (e.g. `master`).
+that should not be pre-released (e.g. `main`).
 
 ```
 npx semantish-prerelease
@@ -23,13 +23,13 @@ npx semantish-prerelease
 
 ## Configuration
 
-Almost all [configuration of semantic-release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md) is being passed through (including cli args).
+Almost all [configuration of semantic-release](https://github.com/semantic-release/semantic-release/blob/main/docs/usage/configuration.md) is being passed through (including cli args).
 
 ### `--release-pr`
 
 ```bash
 # cli
-semantis-prerelease --release-pr
+semantish-prerelease --release-pr
 ```
 
 ```js
@@ -124,21 +124,8 @@ next version is again `1.0.2-next.1`, which already exists.
 This also happens when we're not using git tags to track prior versions at all
 (see solution of problem 1).
 
-We're fixing this by using a shortened git-hash instead of a incremental counter
-so each commit always gets a unique version (`1.0.2-next.40bf6c81`).
-
-### Problem 3 (introduced by fixing 1+2): Missing order in releases
-
-Since we don't increment the version of the next release anymore,
-the order of releases in a channel can (and probably will) be mixed up.
-
-> Semver `1.0.2-next.01d8ec2d` is lower then `1.0.2-next.40bf6c81` even if
-> `01d8ec2d` is the latest change and released after `40bf6c81`.
-
-Thats the reason why this package is called semanti**SH**-prerelease –
-it's just kind of semantic.
-
-I would advice to prefer using explicit versions instead of the release channels
+We're fixing this by using a timestamp instead of a incremental counter
+so each commit always gets a unique version (`1.0.2-next.1659519570622`).
 
 ## Badge
 
@@ -154,7 +141,7 @@ Let people know that your package is pre-published using **semantish-prerelease*
 
 > The MIT License
 >
-> Copyright (C) 2020 Hannes Diercks
+> Copyright (C) 2022 Hannes Diercks
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy of
 > this software and associated documentation files (the "Software"), to deal in
