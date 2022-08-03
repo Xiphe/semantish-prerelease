@@ -1,10 +1,10 @@
 const getConfig = require('semantic-release/lib/get-config');
+const getCiBranch = require('./getCiBranch');
 
 const IGNORE_PLUGINS = ['@semantic-release/gitlab', '@semantic-release/github'];
 
 module.exports = async function getOptions(opts, { cwd, env, envCi }) {
-  const { branch: b1, prBranch: b2 } = envCi;
-  const branch = b1 || b2;
+  const branch = getCiBranch(envCi) || 'unknown';
 
   const config = await getConfig(
     {

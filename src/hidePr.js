@@ -1,4 +1,5 @@
 const getEnvCi = require('env-ci');
+const getCiBranch = require('./getCiBranch');
 
 module.exports = function hidePr(releasePr) {
   return (subContext) => {
@@ -19,17 +20,12 @@ module.exports = function hidePr(releasePr) {
       return envCi;
     }
 
-    const branch =
-      envCi.name === 'GitHub Actions'
-        ? process.env.GITHUB_HEAD_REF
-        : envCi.branch || envCi.prBranch;
-
     return {
       ...envCi,
       isPr: false,
       pr: undefined,
       prBranch: undefined,
-      branch,
+      branch: getCiBranch(envCi),
     };
   };
 };
